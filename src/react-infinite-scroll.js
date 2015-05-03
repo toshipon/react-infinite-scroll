@@ -31,7 +31,7 @@ module.exports = function (React) {
       return React.DOM.div(null, props.children, props.hasMore && (props.loader || InfiniteScroll._defaultLoader));
     },
     scrollListener: function () {
-      var el = this.getDOMNode();
+      var el = this.getDOMNode().parentNode;
       var scrollTop = (window.pageYOffset !== undefined) ? window.pageYOffset : (document.documentElement || document.body.parentNode || document.body).scrollTop;
       if (topPosition(el) + el.offsetHeight - scrollTop - window.innerHeight < Number(this.props.threshold)) {
         this.detachScrollListener();
